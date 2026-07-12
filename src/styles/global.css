@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
 @import './variables.css';
 @import './animations.css';
 
@@ -13,12 +13,13 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-height);
+  font-size: calc(16px * var(--font-scale, 1));
 }
 
 body {
   font-family: var(--font-family);
   font-size: var(--font-size-normal);
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--secondary);
   background: var(--background);
   overflow-x: hidden;
@@ -50,6 +51,7 @@ button {
   border: none;
   background: none;
   cursor: pointer;
+  color: inherit;
 }
 
 ul,
@@ -61,9 +63,8 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font-display);
   color: var(--primary);
-  line-height: 1.15;
+  line-height: 1.12;
   letter-spacing: -0.03em;
 }
 
@@ -77,7 +78,7 @@ p {
 }
 
 .container {
-  width: min(var(--container-width), calc(100% - 2.5rem));
+  width: min(var(--container-width), calc(100% - 3rem));
   margin-inline: auto;
 }
 

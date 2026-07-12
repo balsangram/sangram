@@ -1,4 +1,3 @@
-import GlassCard from '../GlassCard/GlassCard'
 import SectionTitle from '../SectionTitle/SectionTitle'
 import { education } from '../../utils/data'
 import useInView from '../../utils/useInView'
@@ -16,16 +15,14 @@ export default function Education() {
           description="Computer Science training that anchors the engineering practice."
         />
 
-        <div ref={ref} className={`reveal-left ${styles.wrap}`}>
-          <GlassCard className={styles.card}>
-            <div className={styles.badge}>{education.year}</div>
-            <div>
-              <h3>
-                {education.degree} · {education.field}
-              </h3>
-              <p>{education.school}</p>
-            </div>
-          </GlassCard>
+        <div ref={ref} className={`reveal ${styles.row}`}>
+          <span className={styles.year}>{education.year}</span>
+          <div>
+            <h3>
+              {education.degree} · {education.field}
+            </h3>
+            <p>{education.school}</p>
+          </div>
         </div>
       </div>
     </section>

@@ -1,10 +1,13 @@
 import { useCallback, useState } from 'react'
 import BubbleBackground from './components/BubbleBackground/BubbleBackground'
 import Cursor from './components/Cursor/Cursor'
+import FloatingActions from './components/FloatingActions/FloatingActions'
 import Footer from './components/Footer/Footer'
-import Loader from './components/Loader/Loader'
-import Navbar from './components/Navbar/Navbar'
+import FullScreenLoader from './components/FullScreenLoader/FullScreenLoader'
 import Home from './pages/Home'
+import Navbar from './components/Navbar/Navbar'
+import TypographyControls from './components/TypographyControls/TypographyControls'
+
 import './styles/global.css'
 
 export default function App() {
@@ -13,10 +16,12 @@ export default function App() {
 
   return (
     <>
-      {!ready ? <Loader onDone={handleDone} /> : null}
+      {!ready ? <FullScreenLoader onDone={handleDone} /> : null}
       <BubbleBackground />
       <Cursor />
       <Navbar />
+      <TypographyControls />
+      <FloatingActions />
       <main>
         <Home />
       </main>

@@ -1,34 +1,36 @@
-.wrap {
-  max-width: 560px;
-}
-
-.card {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-lg);
-  padding: var(--spacing-xl);
-}
-
-.badge {
-  flex-shrink: 0;
+.row {
   display: grid;
-  place-items: center;
-  width: 72px;
-  height: 72px;
-  border-radius: var(--radius-sm);
-  font-family: var(--font-display);
-  font-weight: 800;
-  color: var(--background-pure);
-  background: linear-gradient(145deg, var(--primary), var(--accent));
-  box-shadow: var(--shadow);
+  grid-template-columns: 6rem 1fr;
+  gap: var(--spacing-xl);
+  align-items: baseline;
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
-.card h3 {
-  font-size: var(--font-size-large);
+.year {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.row h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 400;
+  color: var(--primary);
   margin-bottom: 0.35rem;
 }
 
-.card p {
+.row p {
   font-weight: 600;
   color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
 }

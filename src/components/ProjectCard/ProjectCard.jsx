@@ -1,35 +1,56 @@
-import Button from '../Button/Button'
-import GlassCard from '../GlassCard/GlassCard'
+import useInView from '../../utils/useInView'
 import styles from './ProjectCard.module.css'
 
 export default function ProjectCard({ project, index = 0 }) {
+  const ref = useInView()
+  const number = String(index + 1).padStart(2, '0')
+
   return (
-    <GlassCard
-      className={styles.card}
-      style={{ animationDelay: `${index * 0.08}s` }}
-    >
-      <div className={styles.media} aria-hidden="true">
-        <div className={styles.shine} />
-        <span className={styles.index}>0{index + 1}</span>
-      </div>
-      <div className={styles.body}>
-        <h3>{project.title}</h3>
-        <p>{project.description}</p>
-        <ul className={styles.tags}>
-          {project.tags.map((tag) => (
-            <li key={tag}>{tag}</li>
+    <article ref={ref} className={`reveal ${styles.item}`}>
+      <div className={styles.main}>
+        <div className={styles.meta}>
+          <span className={styles.index}>/{number}</span>
+          <span className={styles.category}>{project.category}</span>
+        </div>
+
+        <h3 className={styles.title}>{project.title}</h3>
+        <p className={styles.description}>{project.description}</p>
+
+        <ul className={styles.metrics}>
+          {project.metrics.map((metric) => (
+            <li key={metric.label}>
+              <strong>{metric.value}</strong>
+              <span>{metric.label}</span>
+            </li>
           ))}
         </ul>
-        <Button
+
+        <a
+          className={styles.link}
           href={project.github}
           target="_blank"
-          variant="secondary"
-          className={styles.github}
-          magnetic={false}
+          rel="noreferrer"
         >
-          GitHub
-        </Button>
+          View on GitHub
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
-    </GlassCard>
+
+      <aside className={styles.aside}>
+        <div className={styles.block}>
+          <p className={styles.label}>Tech Stack</p>
+          <ul className={styles.tech}>
+            {project.tech.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className={styles.block}>
+          <p className={styles.label}>Key Achievement</p>
+          <p className={styles.achievement}>{project.achievement}</p>
+        </div>
+      </aside>
+    </article>
   )
 }

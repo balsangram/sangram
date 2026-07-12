@@ -1,4 +1,3 @@
-import GlassCard from '../GlassCard/GlassCard'
 import SectionTitle from '../SectionTitle/SectionTitle'
 import { achievements } from '../../utils/data'
 import useInView from '../../utils/useInView'
@@ -16,13 +15,13 @@ export default function Achievements() {
           description="Highlights from shipping reliable systems beyond demos and tutorials."
         />
 
-        <ul ref={ref} className={`reveal ${styles.grid}`}>
+        <ul ref={ref} className={`reveal ${styles.list}`}>
           {achievements.map((item, index) => (
-            <li key={item} style={{ transitionDelay: `${index * 0.08}s` }}>
-              <GlassCard className={styles.card}>
-                <span className={styles.number}>0{index + 1}</span>
-                <h3>{item}</h3>
-              </GlassCard>
+            <li key={item} className={styles.item}>
+              <span className={styles.number}>
+                /{String(index + 1).padStart(2, '0')}
+              </span>
+              <h3>{item}</h3>
             </li>
           ))}
         </ul>

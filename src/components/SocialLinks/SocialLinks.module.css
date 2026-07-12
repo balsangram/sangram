@@ -1,32 +1,28 @@
 .list {
   display: flex;
-  gap: 0.75rem;
+  gap: 1.25rem;
 }
 
 .link {
   display: grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius-full);
+  width: auto;
+  height: auto;
   color: var(--primary);
-  background: var(--glass);
-  border: 1px solid var(--glass-border-soft);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(12px);
-  transition:
-    transform var(--transition),
-    background var(--transition),
-    color var(--transition);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  transition: color var(--transition-fast);
 }
 
 .link svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
 }
 
 .link:hover {
-  transform: translateY(-3px);
+  transform: none;
   color: var(--accent);
-  background: var(--glass-strong);
+  background: transparent;
 }

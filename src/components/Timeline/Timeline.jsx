@@ -1,4 +1,3 @@
-import GlassCard from '../GlassCard/GlassCard'
 import useInView from '../../utils/useInView'
 import styles from './Timeline.module.css'
 
@@ -8,13 +7,11 @@ export default function Timeline({ items }) {
   return (
     <ol ref={ref} className={`reveal ${styles.timeline}`}>
       {items.map((item, index) => (
-        <li
-          key={`${item.company}-${item.role}`}
-          className={styles.item}
-          style={{ transitionDelay: `${index * 0.12}s` }}
-        >
-          <div className={styles.marker} aria-hidden="true" />
-          <GlassCard className={styles.card}>
+        <li key={`${item.company}-${item.role}`} className={styles.item}>
+          <div className={styles.index}>
+            /{String(index + 1).padStart(2, '0')}
+          </div>
+          <div className={styles.content}>
             <div className={styles.head}>
               <div>
                 <h3>{item.role}</h3>
@@ -30,7 +27,7 @@ export default function Timeline({ items }) {
                 <li key={tag}>{tag}</li>
               ))}
             </ul>
-          </GlassCard>
+          </div>
         </li>
       ))}
     </ol>

@@ -1,0 +1,35 @@
+.panel {
+  position: fixed;
+  right: 1rem;
+  bottom: 1.25rem;
+  z-index: calc(var(--z-nav) + 1);
+  display: grid;
+  gap: 0.55rem;
+}
+
+.iconBtn {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: var(--primary);
+  background: var(--background-pure);
+  border: 1px solid var(--line);
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.iconBtn:hover {
+  color: var(--accent);
+  border-color: var(--accent-border);
+}
+
+@media (max-width: 640px) {
+  .panel {
+    right: 0.65rem;
+    bottom: 0.85rem;
+  }
+}

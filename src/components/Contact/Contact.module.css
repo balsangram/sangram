@@ -1,70 +1,86 @@
 .layout {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-2xl);
+  align-items: start;
 }
 
-.info,
-.formCard {
-  padding: var(--spacing-xl);
-}
-
-.infoInner {
+.info {
   display: grid;
   gap: var(--spacing-md);
+  padding-top: 0.25rem;
 }
 
-.infoInner h3 {
-  font-size: var(--font-size-large);
-  margin-bottom: 0.25rem;
+.info h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 400;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
 }
 
-.infoInner a {
+.info a {
+  font-size: var(--font-size-medium);
   font-weight: 600;
   color: var(--primary);
-  transition: color var(--transition-fast);
+  border-bottom: 1px solid transparent;
+  width: fit-content;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
-.infoInner a:hover {
+.info a:hover {
   color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 .social {
-  margin-top: var(--spacing-sm);
+  margin-top: var(--spacing-md);
 }
 
 .form {
   display: grid;
-  gap: var(--spacing-md);
+  gap: var(--spacing-lg);
 }
 
 .form label {
   display: grid;
-  gap: 0.45rem;
-  font-size: var(--font-size-small);
+  gap: 0.5rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  color: var(--primary);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .form input,
 .form textarea {
   width: 100%;
-  padding: 0.9rem 1rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--glass-border-soft);
-  background: var(--white-mid);
+  padding: 0.85rem 0;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
   color: var(--primary);
   font: inherit;
+  font-size: var(--font-size-normal);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
   outline: none;
-  transition:
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast);
+  transition: border-color var(--transition-fast);
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+  color: var(--muted);
+  font-weight: 400;
 }
 
 .form input:focus,
 .form textarea:focus {
-  border-color: var(--accent-focus);
-  box-shadow: 0 0 0 4px var(--accent-muted);
+  border-bottom-color: var(--accent);
 }
 
 .form textarea {

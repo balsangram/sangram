@@ -93,37 +93,72 @@ export const experiences = [
 export const projects = [
   {
     title: 'AOLIC',
+    category: 'Tourism Platform',
     description:
       'Tourism management platform with multilingual support, booking flows, notifications, admin tooling, and robust backend APIs.',
-    tags: ['Tourism', 'Multilingual', 'Booking', 'Notifications', 'Admin'],
+    tech: ['Node.js', 'Express', 'MongoDB', 'Multilingual', 'REST APIs'],
+    metrics: [
+      { value: 'Multi', label: 'Language' },
+      { value: 'Admin', label: 'Panel' },
+      { value: 'Live', label: 'Booking' },
+    ],
+    achievement: 'End-to-end tourism workflows with notifications',
     github: 'https://github.com/balsangram/AOLIC',
   },
   {
     title: 'PFM',
+    category: 'Personal Finance',
     description:
       'Personal finance management app for tracking transactions, analytics insights, and budget planning.',
-    tags: ['Finance', 'Transactions', 'Analytics', 'Budget'],
+    tech: ['React', 'Node.js', 'MongoDB', 'Analytics'],
+    metrics: [
+      { value: 'Track', label: 'Transactions' },
+      { value: 'Live', label: 'Analytics' },
+      { value: 'Smart', label: 'Budgets' },
+    ],
+    achievement: 'Clear spend insights with budget controls',
     github: 'https://github.com/balsangram/PFM',
   },
   {
     title: 'FINT',
+    category: 'Finance Platform',
     description:
       'Finance platform featuring payments, dashboards, and well-structured REST APIs.',
-    tags: ['Payments', 'Dashboard', 'REST APIs'],
+    tech: ['Node.js', 'Express', 'Payments', 'REST APIs'],
+    metrics: [
+      { value: 'Pay', label: 'Flows' },
+      { value: 'API', label: 'First' },
+      { value: 'Dash', label: 'Board' },
+    ],
+    achievement: 'Payment-ready finance dashboard APIs',
     github: 'https://github.com/balsangram/FINT',
   },
   {
     title: 'UTPALA',
+    category: 'Management System',
     description:
       'Management system focused on scalable backend services and admin workflows.',
-    tags: ['Management', 'Backend', 'Admin'],
+    tech: ['Node.js', 'Express', 'MongoDB', 'Admin'],
+    metrics: [
+      { value: 'Admin', label: 'Tools' },
+      { value: 'Scale', label: 'Backend' },
+      { value: 'CRUD', label: 'Ready' },
+    ],
+    achievement: 'Scalable admin-backed management APIs',
     github: 'https://github.com/balsangram/UTPALA',
   },
   {
     title: 'KRSA',
+    category: 'Enterprise Platform',
     description:
       'Enterprise platform built with React, Node.js, and MongoDB for production-scale workflows.',
-    tags: ['Enterprise', 'React', 'Node', 'MongoDB'],
+    tech: ['React', 'Node.js', 'MongoDB', 'Enterprise'],
+    metrics: [
+      { value: 'Full', label: 'Stack' },
+      { value: 'Prod', label: 'Ready' },
+      { value: 'MERN', label: 'Stack' },
+    ],
+    achievement: 'Production-scale enterprise workflows',
     github: 'https://github.com/balsangram/KRSA',
   },
 ]

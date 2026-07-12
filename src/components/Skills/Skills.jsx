@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import GlassCard from '../GlassCard/GlassCard'
 import SectionTitle from '../SectionTitle/SectionTitle'
 import { skillCategories } from '../../utils/data'
 import styles from './Skills.module.css'
@@ -10,8 +9,8 @@ function SkillBars({ skills, active }) {
       {skills.map((skill) => (
         <li key={skill.name}>
           <div className={styles.row}>
-            <span>{skill.name}</span>
-            <span>{skill.level}%</span>
+            <span className={styles.name}>{skill.name}</span>
+            <span className={styles.level}>{skill.level}%</span>
           </div>
           <div className={styles.track}>
             <div
@@ -75,12 +74,10 @@ export default function Skills() {
             ))}
           </div>
 
-          <GlassCard className={styles.panel} hover={false}>
-            <div className={styles.panelInner}>
-              <h3>{category.title}</h3>
-              <SkillBars skills={category.skills} active={visible} />
-            </div>
-          </GlassCard>
+          <div className={styles.panel}>
+            <h3>{category.title}</h3>
+            <SkillBars skills={category.skills} active={visible} />
+          </div>
         </div>
       </div>
     </section>

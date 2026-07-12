@@ -1,0 +1,86 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loader);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cloud {
+  position: absolute;
+  left: -40%;
+  width: 220px;
+  height: 70px;
+  background: rgba(200, 210, 220, 0.45);
+  border-radius: 100px;
+  filter: blur(2px);
+  animation-name: cloudDrift;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 90px;
+  height: 90px;
+  top: -45px;
+  left: 35px;
+}
+
+.cloud::after {
+  width: 120px;
+  height: 120px;
+  top: -60px;
+  left: 90px;
+}
+
+.title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--font);
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.glass {
+  font-weight: 700;
+  color: rgba(17, 17, 17, 0.18);
+  -webkit-text-fill-color: rgba(17, 17, 17, 0.16);
+  -webkit-text-stroke: 1.2px rgba(17, 17, 17, 0.32);
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.85),
+    0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+@keyframes cloudDrift {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 160vw 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloud {
+    animation: none;
+  }
+}
