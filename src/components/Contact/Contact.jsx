@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import emailjs from "@emailjs/browser";
 
 import Button from "../Button/Button";
@@ -16,10 +17,21 @@ const initial = {
 
 export default function Contact() {
   const [form, setForm] = useState(initial);
-  const [status, setStatus] = useState("");
+  const [toast, setToast] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const ref = useInView();
+
+  useEffect(() => {
+    if (!toast) return undefined;
+
+    const timer = setTimeout(() => setToast(null), 3200);
+    return () => clearTimeout(timer);
+  }, [toast]);
+
+  const showToast = (type, title, detail) => {
+    setToast({ type, title, detail });
+  };
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -34,31 +46,45 @@ export default function Contact() {
     e.preventDefault();
 
     if (!form.name || !form.email || !form.message) {
-      setStatus("Please fill in all fields.");
+      showToast(
+        "error",
+        "Almost there",
+        "Please fill in every field before sending."
+      );
       return;
     }
 
     try {
       setLoading(true);
-      setStatus("");
 
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
-          from_name: form.name,
-          from_email: form.email,
+          name: form.name,
+          email: form.email,
           message: form.message,
-          to_email: contactInfo.email,
+          time: new Date().toLocaleString("en-IN", {
+            dateStyle: "medium",
+            timeStyle: "short",
+          }),
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
-      setStatus("✅ Message sent successfully!");
+      showToast(
+        "success",
+        "Message sent",
+        "Thanks for reaching out — I’ll get back to you soon."
+      );
       setForm(initial);
     } catch (error) {
       console.error(error);
-      setStatus("❌ Failed to send message.");
+      showToast(
+        "error",
+        "Couldn’t send",
+        "Something went wrong. Please try again in a moment."
+      );
     } finally {
       setLoading(false);
     }
@@ -140,13 +166,37 @@ export default function Contact() {
             <Button type="submit" disabled={loading}>
               {loading ? "Sending..." : "Send Message"}
             </Button>
-
-            {status && (
-              <p className={styles.status}>{status}</p>
-            )}
           </form>
         </div>
       </div>
+
+      {toast &&
+        createPortal(
+          <div
+            className={`${styles.toast} ${
+              toast.type === "success" ? styles.toastSuccess : styles.toastError
+            }`}
+            role="status"
+            aria-live="polite"
+          >
+            <span className={styles.toastMark} aria-hidden="true">
+              {toast.type === "success" ? "✓" : "!"}
+            </span>
+            <div className={styles.toastCopy}>
+              <strong>{toast.title}</strong>
+              <p>{toast.detail}</p>
+            </div>
+            <button
+              type="button"
+              className={styles.toastClose}
+              onClick={() => setToast(null)}
+              aria-label="Dismiss notification"
+            >
+              ×
+            </button>
+          </div>,
+          document.body
+        )}
     </section>
   );
 }
