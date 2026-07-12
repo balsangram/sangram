@@ -1,0 +1,79 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.media {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, var(--accent-muted), var(--overlay-dark)),
+    radial-gradient(circle at 80% 20%, var(--blob-1), transparent 45%);
+}
+
+.shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.28),
+    transparent 65%
+  );
+  transform: scale(1.05);
+  transition: transform var(--transition);
+}
+
+.card:hover .shine {
+  transform: scale(1.18);
+}
+
+.index {
+  position: absolute;
+  left: 1.1rem;
+  bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--white-strong);
+  letter-spacing: -0.04em;
+}
+
+.body {
+  display: grid;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  flex: 1;
+}
+
+.body h3 {
+  font-size: 1.35rem;
+}
+
+.body p {
+  font-size: var(--font-size-small);
+  line-height: 1.65;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.tags li {
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-muted);
+}
+
+.github {
+  width: fit-content;
+  margin-top: auto;
+}

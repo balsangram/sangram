@@ -1,0 +1,34 @@
+.wrap {
+  max-width: 560px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+}
+
+.badge {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--background-pure);
+  background: linear-gradient(145deg, var(--primary), var(--accent));
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  font-size: var(--font-size-large);
+  margin-bottom: 0.35rem;
+}
+
+.card p {
+  font-weight: 600;
+  color: var(--accent);
+}

@@ -1,0 +1,32 @@
+.list {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.link {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  color: var(--primary);
+  background: var(--glass);
+  border: 1px solid var(--glass-border-soft);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(12px);
+  transition:
+    transform var(--transition),
+    background var(--transition),
+    color var(--transition);
+}
+
+.link svg {
+  width: 18px;
+  height: 18px;
+}
+
+.link:hover {
+  transform: translateY(-3px);
+  color: var(--accent);
+  background: var(--glass-strong);
+}
