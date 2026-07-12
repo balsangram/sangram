@@ -39,7 +39,9 @@ export default function Hero() {
         <div className={styles.copy}>
           <p className={styles.hello}>Hello,</p>
           <h1 className={styles.title}>
-            I&apos;m <span className={styles.glassName}>Sangram Bal</span>
+            I&apos;m
+            {/* <span className={styles.glassName}> */}
+              <span style={{ color: "#be1a05" , marginLeft:"20px"}}>Sangram Bal</span>
           </h1>
           <p className={styles.role}>Full Stack MERN Developer</p>
           <p className={styles.typing}>
